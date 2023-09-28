@@ -102,22 +102,22 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="./static/pdfs/paper.pdf"
+                <a href="javascript:void(0);"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Paper (Coming soon)</span>
                 </a>
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="./static/videos/main.mp4"
+                <a href="javascript:void(0);"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
                   </span>
-                  <span>Video</span>
+                  <span>Video (Coming soon)</span>
                 </a>
               </span>
               <span class="link-block">
@@ -138,11 +138,11 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/rolling.mp4"
+        <source src="./static/spirals/rolling_3x6_short.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
@@ -150,7 +150,7 @@
       </h2>
     </div>
   </div>
-</section> -->
+</section>
 
 
 <section class="hero is-light is-small">
@@ -225,13 +225,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present Gaussian Splatting based text-to-3D GENeration (<span class="textsc">Gsgen</span>), the first novel approach that generates multi-view consistent and delicate 3D assets using <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting</a>.
+            We present Gaussian Splatting based text-to-3D GENeration (<span class="textsc">Gsgen</span>), the first approach that generates multi-view consistent and delicate 3D assets using <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting</a>.
           </p>
           <p>
-            Based on the observation that previous methods suffer from multi-view inconsistency and limited fidelity due to the absence of 3D prior and powerful representation, <span class="textsc">Gsgen</span> presents a novel paradigm that leverages 3D Gaussian Splatting, a recently proposed state-of-the-art representation, addressing existing shortcomings by taking advantage of this explicit and powerful representation.
-          </p>
-          <p>
-            Specifically, \textsc{Gsgen} employs two optimization stages, allowing us to progressively refine the generated 3D content. In the geometrical optimization stage, a coarse representation is established under a 3D geometrical prior along with the ordinary 2D SDS loss, ensuring a sensible and multi-view consistent rough shape. Subsequently, the obtained Gaussians undergo an iterative refinement stage to enrich details. Observing the suboptimal performance of the original adaptive control strategy under score distillation sampling, we further enhance the continuity with a compactness-based densification strategy. With these designs, our approach can generate 3D content that not only with delicate details but also provides a more accurate representation of real-world objects and scenes. Extensive evaluations demonstrate the effectiveness of the use of Gaussian Splatting and our optimization strategy.
+            Previous methods suffer from inaccurate geometry and limited fidelity due to the absence of 3D prior and proper representation. We leverage 3D Gaussian Splatting, a recent state-of-the-art representation, to address existing shortcomings by exploiting the explicit nature that enables the incorporation of 3D prior. Specifically, our method adopts a progressive optimization strategy, which includes a geometry optimization stage and an appearance refinement stage. 
+            In geometry optimization, a coarse representation is established under a 3D geometry prior along with the ordinary 2D SDS loss, ensuring a sensible and 3D-consistent rough shape. Subsequently, the obtained Gaussians undergo an iterative refinement to enrich details. In this stage, we increase the number of Gaussians by compactness-based densification to enhance continuity and improve fidelity.With these designs, our approach can generate 3D content with delicate details and more accurate geometry. Extensive evaluations demonstrate the effectiveness of our method, especially for capturing high-frequency components.
           </p>
         </div>
       </div>
@@ -264,19 +262,16 @@
 
         <div class="content has-text-justified">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            Our approach is based on the following research or resources.
           </p>
           <p>
             <a href="https://arxiv.org/abs/2104.09125">Stable Dreamfusion</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
           </p>
           <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">threestudio</a> provides a great baseline for text-to-3D generation.
+            <a href="https://github.com/threestudio-project/threestudio">threestudio</a> provides a great baseline for text-to-3D generation.
           </p>
           <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+            <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting</a> the pioneering work achieves superior performance and enables real-time rendering.
           </p>
         </div>
       </div>
@@ -303,10 +298,10 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
+      <!-- <a class="icon-link"
          href="./static/videos/nerfies_paper.pdf">
         <i class="fas fa-file-pdf"></i>
-      </a>
+      </a> -->
       <a class="icon-link" href="https://github.com/gsgen3d" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
