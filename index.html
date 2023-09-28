@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="Generate multi-view consistent and highly detailed 3D content with Gaussian Splatting">
-  <meta name="keywords" content="Text-to-3D">
+  <meta name="keywords" content="Text-to-3D, 3D Gaussian Splatting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GSGEN: Text-to-3D using Gaussian Splatting</title>
 
@@ -22,7 +22,7 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Jost"
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -42,7 +42,7 @@
 </head>
 <body>
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
@@ -52,7 +52,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
+      <a class="navbar-item" href="https://gsgen3d.github.io">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
@@ -60,27 +60,30 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          More Research
+          Related Research
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            MSTH
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Segment Anything in NeRF
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
+          <a class="navbar-item" href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">
             3D Gaussian Splatting
           </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
+          <a class="navbar-item" href="https://github.com/ashawkey/stable-dreamfusion">
+            Stable DreamFusion
+          </a>
+          <a class="navbar-item" href="https://github.com/threestudio-project/threestudio">
+            threestudio
+          </a>
+          <a class="navbar-item" href="https://fantasia3d.github.io/">
+            Fantasia3D
+          </a>
+          <a class="navbar-item" href="https://ml.cs.tsinghua.edu.cn/prolificdreamer/">
+            ProlificDreamer
           </a>
         </div>
       </div>
     </div>
 
   </div>
-</nav> -->
+</nav>
 
 
 <section class="hero">
@@ -88,10 +91,10 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">GSGEN: Text-to-3D using Gaussian Splatting</h1>
+          <h1 class="title is-1 publication-title"><span class="textsc">Gsgen</span>: Text-to-3D using Gaussian Splatting</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://openreview.net/group?id=ICLR.cc/2024/Conference">Anonymous authors</a>
+              <a href="https://openreview.net/group?id=ICLR.cc/2024/Conference"><span class="textsc">Gsgen</span> Authors</a>
             </span>
           </div>
 
@@ -117,6 +120,15 @@
                   <span>Video</span>
                 </a>
               </span>
+              <span class="link-block">
+                <a href="https://github.com/gsgen3d/gsgen"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
               <!-- Dataset Link. -->
             </div>
           </div>
@@ -130,11 +142,11 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="./static/videos/rolling.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Gsgen</span> generate multi-view consistent and highly detailed 3D assets using Gaussian Splatting and 3D geometrical prior.
+        <span class="textsc">Gsgen</span> generate multi-view consistent and highly detailed 3D assets using Gaussian Splatting and 3D geometrical prior.
       </h2>
     </div>
   </div>
@@ -147,49 +159,50 @@
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
+            <source src="./static/spirals/A_DSLR_photo_of_Car_made_out_of_sushi.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-chair-tp">
           <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
+            <source src="./static/spirals/A_beautiful_dress_made_out_of_feathers,_on_a_mannequin..mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-shiba">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
+            <source src="./static/spirals/A_DSLR_photo_of_a_peacock_on_a_surfboard.mp4"
                     type="video/mp4">
           </video>
+          <p>A DSLR photo of a peacock on a surfboard</p>
         </div>
         <div class="item item-fullbody">
           <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
+            <source src="./static/spirals/A_DSLR_photo_of_a_tray_of_Sushi_containing_pugs.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
+            <source src="./static/spirals/A_zoomed_out_DSLR_photo_of_a_ladybug.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-mask">
           <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
+            <source src="./static/spirals/A_zoomed_out_DSLR_photo_of_a_brain_in_a_jar.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-coffee">
           <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
+            <source src="./static/spirals/A_bunch_of_blue_rose,_highly_detailed.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-toby">
           <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
+            <source src="./static/spirals/A_zoomed_out_DSLR_photo_of_a_beautiful_suit_made_out_of_moss,_on_a_mannequin._Studio_lighting,_high_quality,_high_resolution.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -207,30 +220,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present Gaussian Splatting based text-to-3D GENeration (GSGEN).
+            We present Gaussian Splatting based text-to-3D GENeration (<span class="textsc">Gsgen</span>), the first novel approach that generates multi-view consistent and delicate 3D assets using <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting</a>.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            Based on the observation that previous methods suffer from multi-view inconsistency and limited fidelity due to the absence of 3D prior and powerful representation, <span class="textsc">Gsgen</span> presents a novel paradigm that leverages 3D Gaussian Splatting, a recently proposed state-of-the-art representation, addressing existing shortcomings by taking advantage of this explicit and powerful representation.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Specifically, \textsc{Gsgen} employs two optimization stages, allowing us to progressively refine the generated 3D content. In the geometrical optimization stage, a coarse representation is established under a 3D geometrical prior along with the ordinary 2D SDS loss, ensuring a sensible and multi-view consistent rough shape. Subsequently, the obtained Gaussians undergo an iterative refinement stage to enrich details. Observing the suboptimal performance of the original adaptive control strategy under score distillation sampling, we further enhance the continuity with a compactness-based densification strategy. With these designs, our approach can generate 3D content that not only with delicate details but also provides a more accurate representation of real-world objects and scenes. Extensive evaluations demonstrate the effectiveness of the use of Gaussian Splatting and our optimization strategy.
           </p>
         </div>
       </div>
@@ -241,9 +237,11 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
+        Under construction
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <iframe src="https://player.bilibili.com/player.html?aid=232782565&bvid=BV1p8411X7Qg&cid=1249934390&p=1" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
         </div>
       </div>
     </div>
@@ -254,125 +252,20 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Qualitative Comparison</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
+        <h2 class="title is-3">Related Research or Resources</h2>
 
         <div class="content has-text-justified">
           <p>
             There's a lot of excellent work that was introduced around the same time as ours.
           </p>
           <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+            <a href="https://arxiv.org/abs/2104.09125">Stable Dreamfusion</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
           </p>
           <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
+            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">threestudio</a> provides a great baseline for text-to-3D generation.
           </p>
           <p>
             Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
@@ -389,7 +282,7 @@
 </section>
 
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{park2021nerfies,
@@ -399,7 +292,7 @@
   year      = {2021},
 }</code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
@@ -409,7 +302,7 @@
          href="./static/videos/nerfies_paper.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/gsgen3d" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -417,16 +310,7 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            We thank the authors of <a href="https://github.com/nerfies/nerfies.github.io"><span class="textsc">Nerfies</span></a> that kindly open sourced the template of this website.
           </p>
         </div>
       </div>

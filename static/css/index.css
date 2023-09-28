@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
 }
 
 
@@ -13,7 +13,7 @@ body {
     margin-bottom: 5px;
 }
 
-.dnerf {
+.textsc {
   font-variant: small-caps;
 }
 
@@ -29,6 +29,7 @@ body {
 
 
 .publication-title {
+  font-weight: 600;
 }
 
 .publication-banner {
